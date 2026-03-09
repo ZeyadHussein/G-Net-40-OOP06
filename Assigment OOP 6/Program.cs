@@ -40,7 +40,7 @@ namespace Assigment_OOP_6
             //and cannot be accessed directly by the user.
             //*/
             #endregion
-            #region Q2
+            #region Question 2
             /*
             Q2: What is the difference between an abstract class and an interface?
             Give at least four differences. When would you choose one over the other?
@@ -77,6 +77,81 @@ namespace Assigment_OOP_6
             //Use an Interface when:
             //You want to define a contract. Multiple unrelated classes must follow the same behavior
             //
+            #endregion
+
+            #region Qouestion 3
+            /*
+            Look at the following code and answer the questions.
+            */
+
+            ///code part:
+
+            //public abstract class Appliance
+            //        {
+            //            public string Brand { get; set; }
+
+            //            protected Appliance(string brand) { Brand = brand; }
+
+            //            public abstract double PowerConsumption();
+
+            //            public virtual string Status() => "Standby";
+
+            //            public string Label() => $"{Brand} - {PowerConsumption()}W";
+            //        }
+
+            //        public class WashingMachine : Appliance
+            //        {
+            //            public WashingMachine(string brand) : base(brand) { }
+            //            public override double PowerConsumption() => 500;
+            //            public override string Status() => "Washing";
+            //        }
+
+            //        public class Toaster : Appliance
+            //        {
+            //            public Toaster(string brand) : base(brand) { }
+            //            public override double PowerConsumption() => 800;
+            //        }
+
+            /*
+            a) Can you write:
+            Appliance a = new Appliance("LG") ?
+
+            Answer:
+            No. Because Appliance is an abstract class and abstract classes cannot
+            be instantiated directly. They are meant to be inherited by other classes.
+            */
+
+            /*
+            b) Difference between PowerConsumption(), Status(), and Label().
+
+            PowerConsumption():
+            Abstract method.
+            Every child class MUST implement its own version.
+
+            Status():
+            Virtual method.
+            Child classes may override it but they are not required to.
+
+            Label():
+            Concrete method.
+            It already has full implementation and child classes use it as-is.
+
+            Reason for design:
+            PowerConsumption depends on appliance type.
+            Status may change depending on device state.
+            Label is common functionality shared by all appliances.
+            */
+
+            /*
+            c) If you call Status() on a Toaster object, what will it return?
+
+            Answer:
+            It will return "Standby".
+
+            Reason:
+            Toaster does not override the Status() method,
+            so it uses the default implementation from the base class.
+            */
             #endregion
             #endregion
         }
