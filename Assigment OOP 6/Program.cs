@@ -153,6 +153,64 @@ namespace Assigment_OOP_6
             so it uses the default implementation from the base class.
             */
             #endregion
+
+            #region Qouestion 4
+            /*
+            Look at the following code and answer the questions.
+            */
+
+            /*
+            a) What is a partial class?
+
+            A partial class allows a class definition to be split across multiple
+            files. All parts are combined by the compiler into one class.
+
+            Why split Calculator?
+            To organize large classes. For example:
+            - One file for logic
+            - One file for logging
+            - One file for utilities
+            */
+
+            /*
+            b) What is a partial method?
+
+            A partial method is a method that can be declared in one part of a partial
+            class and optionally implemented in another.
+
+            If the implementation is deleted:
+            The code will still compile.
+
+            Reason:
+            If a partial method has no implementation, the compiler removes
+            both the declaration and its calls.
+            */
+
+            /*
+            c) What is an extension method?
+
+            An extension method allows you to add new methods to an existing class
+            without modifying its source code.
+
+            Three rules:
+            1. It must be inside a static class.
+            2. The method itself must be static.
+            3. The first parameter must use the "this" keyword.
+            */
+
+            /*
+            d) What will this code print?
+
+            Calculator calc = new Calculator();
+            double result = calc.Add(19.5, 0.5);
+            Console.WriteLine(result.ToCurrency());
+
+            Output:
+
+            Log: result = 20
+            $20.00
+            */
+            #endregion
             #endregion
         }
     }
