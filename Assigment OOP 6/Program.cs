@@ -212,6 +212,54 @@ namespace Assigment_OOP_6
             */
             #endregion
             #endregion
+
+            #region Part 2:Practical (Extending the Movie Ticket Booking System)
+
+            //Practical (Extending the Movie Ticket Booking System)
+
+
+
+            Console.WriteLine("=== Cinema Opened ===");
+
+            // This line cannot run because Ticket is abstract
+            // Ticket t = new Ticket("Test", 100);
+
+            Console.WriteLine("// Ticket t = new Ticket(\"Test\", 100);  // ERROR: Cannot create instance of abstract type 'Ticket'"); // iam using this to show error in the output like the assigment only
+
+            Ticket t1 = new StandardTicket("Inception", 80, "A5");
+            Ticket t2 = new VIPTicket("Avengers", 200, true, 50);
+            Ticket t3 = new IMAXTicket("Dune", 130, true);
+
+            t1.Book();
+            t2.Book();
+            t3.Book();
+
+            Cinema cinema = new Cinema();
+
+            cinema.AddTicket(t1);
+            cinema.AddTicket(t2);
+            cinema.AddTicket(t3);
+
+            cinema.PrintTickets();
+
+            Console.WriteLine("\n--- Polymorphism: Final Price per Ticket ---");
+
+            Ticket[] tickets = { t1, t2, t3 };
+
+            foreach (var t in tickets)
+            {
+                Console.WriteLine($"{t.GetType().Name} => Final Price: {t.FinalPrice():F2}");
+            }
+
+            Console.WriteLine("\n--- Extension Method: Receipt ---");
+            Console.WriteLine(t2.Receipt());
+
+            Console.WriteLine("\n--- Extension Method: Total Revenue ---");
+            Console.WriteLine($"Total Revenue: {tickets.TotalRevenue():F2}");
+
+            Console.WriteLine("\n=== Cinema Closed ===");
+
+            #endregion
         }
     }
 }
